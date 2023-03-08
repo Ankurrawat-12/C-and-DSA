@@ -19,6 +19,9 @@ int main() {
     {
         cout << "Ankur not found" << endl;
     }
+    for(auto it = map.begin(); it != map.end(); it++){
+        cout<<it->first<<" "<<it->second<<endl;
+    }
 
     return 0;
 }
