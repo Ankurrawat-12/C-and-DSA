@@ -19,9 +19,25 @@ int main() {
     {
         cout << "Ankur not found" << endl;
     }
+
+    // ! No particular ordering
+
     for(auto it = map.begin(); it != map.end(); it++){
         cout<<it->first<<" "<<it->second<<endl;
     }
+    
+    if(map.count("Saurabh") > 0){
+        cout<<"found "<<endl;
+    }
+    else{
+        cout<<"Not Found!"<<endl;
+    }
+    cout<<map.size()<<endl;
+    map.erase("Singh");
+    cout<<map.size()<<endl;
+    map.erase(map.begin());
+    cout<<map.size()<<endl;
+    // * time complexity O(1)
 
     return 0;
 }
