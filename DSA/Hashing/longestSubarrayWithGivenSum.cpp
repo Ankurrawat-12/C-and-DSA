@@ -15,19 +15,17 @@ int main(){
     cin>>sum;
 
     unordered_map<int, int> map;
+    int longestArray = 0, preSum = 0;
 
-    int pre_sum = 0, largestSubarray = 0;
     for(int i = 0; i < size; i++){
-        pre_sum+= array[i];
-        if(pre_sum == sum){
-            largestSubarray = i+1;
-        }
-        if(map.find(pre_sum) == map.end()){
-            map.insert({pre_sum, i});
-        }
-        if(map.find(pre_sum - sum) != map.end()){
-            largestSubarray = max(largestSubarray, i-map[pre_sum - sum]);
-        }
+        preSum += array[i]; 
+        if(preSum == sum)
+            longestArray = i +1;
+        if(map.find(preSum) == map.end())
+            map[preSum] = i;
+        if(map.find(preSum - sum) != map.end())
+            longestArray = max(longestArray, i - map[preSum - sum]);
     }
-    cout<<largestSubarray<<endl;
+
+    cout<<longestArray;
 }
